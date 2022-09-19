@@ -195,7 +195,7 @@ namespace PayCore.ProductCatalog.Application.Services
 
             entity.IsSold = true;
             entity.Status = false;
-            entity.IsOfferable = false,
+            entity.IsOfferable = false;
             await _unitOfWork.Product.Update(entity);
         }
     }
