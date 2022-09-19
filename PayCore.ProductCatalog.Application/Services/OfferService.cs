@@ -40,7 +40,6 @@ namespace PayCore.ProductCatalog.Application.Services
             //offer is approved
             offer.IsApproved = true;
             var product = await _unitOfWork.Product.GetById(offer.Product.Id);
-            product.IsSold = true;
             await _unitOfWork.Offer.Update(offer);
 
         }
@@ -61,6 +60,7 @@ namespace PayCore.ProductCatalog.Application.Services
             }
             //offer is approved
             offer.IsApproved = false;
+            offer.Status = false;
 
             //update
             await _unitOfWork.Offer.Update(offer);
@@ -88,7 +88,10 @@ namespace PayCore.ProductCatalog.Application.Services
                        Id = sequenceEnum.Current.Id,
                        OfferedPrice = sequenceEnum.Current.OfferedPrice,
                        IsApproved = sequenceEnum.Current.IsApproved,
-                       Product =  new ProductViewDto() { 
+                        Status = sequenceEnum.Current.Status,
+                        CustomerId = sequenceEnum.Current.Customer.Id,
+                       CustomerName = sequenceEnum.Current.Customer.Name,
+                        Product =  new ProductViewDto() { 
                                 Id = sequenceEnum.Current.Product.Id,
                                 ProductName = sequenceEnum.Current.Product.ProductName,
                                 Description = sequenceEnum.Current.Product.Description,
@@ -96,8 +99,11 @@ namespace PayCore.ProductCatalog.Application.Services
                                 CategoryName = sequenceEnum.Current.Product.Category.CategoryName,
                                 ColorName = sequenceEnum.Current.Product.Color.ColorName,
                                 BrandName = sequenceEnum.Current.Product.Brand.BrandName,
-                                AccountId = sequenceEnum.Current.Account.Id,
-                                AccountName = sequenceEnum.Current.Account.Name,
+                                IsSold = sequenceEnum.Current.Product.IsSold,
+                                IsOfferable = sequenceEnum.Current.Product.IsOfferable,
+                                OwnerId = sequenceEnum.Current.Product.Owner.Id,
+                                OwnerName = sequenceEnum.Current.Product.Owner.Name,
+                                Status = sequenceEnum.Current.Product.Status,
                        }
                     };
                     result.Add(offerView);
@@ -128,6 +134,10 @@ namespace PayCore.ProductCatalog.Application.Services
                         Id = sequenceEnum.Current.Id,
                         OfferedPrice = sequenceEnum.Current.OfferedPrice,
                         IsApproved = sequenceEnum.Current.IsApproved,
+                        Status = sequenceEnum.Current.Status,
+                        CustomerId = sequenceEnum.Current.Customer.Id,
+                        CustomerName = sequenceEnum.Current.Customer.Name,
+
                         Product = new ProductViewDto()
                         {
                             Id = sequenceEnum.Current.Product.Id,
@@ -138,8 +148,10 @@ namespace PayCore.ProductCatalog.Application.Services
                             ColorName = sequenceEnum.Current.Product.Color.ColorName,
                             BrandName = sequenceEnum.Current.Product.Brand.BrandName,
                             IsSold = sequenceEnum.Current.Product.IsSold,
-                            AccountId = sequenceEnum.Current.Account.Id,
-                            AccountName = sequenceEnum.Current.Account.Name,
+                            IsOfferable = sequenceEnum.Current.Product.IsOfferable,
+                            OwnerId = sequenceEnum.Current.Product.Owner.Id,
+                            OwnerName = sequenceEnum.Current.Product.Owner.Name,
+                            Status = sequenceEnum.Current.Product.Status,
                         }
                     };
                     result.Add(offerView);
@@ -155,7 +167,7 @@ namespace PayCore.ProductCatalog.Application.Services
         {
             //To check if product is offerable
             var product = await _unitOfWork.Product.GetById(dto.ProductId);
-            if (product.IsOfferable == false || product.Account.Id == userId)
+            if (product.IsOfferable == false || product.Owner.Id == userId)
             {
                 throw new BadRequestException("Product is not offerable");
             }
@@ -164,8 +176,7 @@ namespace PayCore.ProductCatalog.Application.Services
 
 
             //Assigning id of user to AccountId
-            tempEntity.Account.Id = userId;
-            tempEntity.Account = await _unitOfWork.Account.GetById(userId);
+            tempEntity.Customer = await _unitOfWork.Account.GetById(userId);
             tempEntity.Product = await _unitOfWork.Product.GetById(dto.ProductId);
 
             //Creating the offer
@@ -197,7 +208,7 @@ namespace PayCore.ProductCatalog.Application.Services
             var entity = await _unitOfWork.Offer.GetById(offerId);
 
             //If user tries to use offer doesnt to belong to him/her
-            if(entity.Account.Id != UserId)
+            if(entity.Customer.Id != UserId)
             {
                 throw new BadRequestException("Offer could not be found");
             }

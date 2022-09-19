@@ -7,7 +7,10 @@ namespace PayCore.ProducCatalog.Application.Dto_Validator
     {
         public virtual int Id { get; set; }
         public int OfferedPrice { get; set; }
-        public ProductViewDto Product { get; set; }
         public bool IsApproved { get; set; }
+        public bool Status { get; set; }
+        public int CustomerId { get; set; }
+        public string CustomerName { get; set; }
+        public ProductViewDto Product { get; set; }
     }
 }

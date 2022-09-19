@@ -64,7 +64,7 @@ namespace PayCore.ProductCatalog.WebAPI.Controllers
         public virtual async Task<IActionResult> ApproveOffer(int offerId)
         {
             var accountId = int.Parse((User.Identity as ClaimsIdentity).FindFirst("AccountId").Value);
-            await offerService.ApproveOffer(accountId, offerId);
+            await offerService.ApproveOffer(offerId, accountId);
             return Ok();
         }
 
@@ -72,7 +72,7 @@ namespace PayCore.ProductCatalog.WebAPI.Controllers
         public virtual async Task<IActionResult> DisapproveOffer(int offerId)
         {
             var accountId = int.Parse((User.Identity as ClaimsIdentity).FindFirst("AccountId").Value);
-            await offerService.DisapproveOffer(accountId, offerId);
+            await offerService.DisapproveOffer(offerId, accountId);
             return Ok();
         }
 

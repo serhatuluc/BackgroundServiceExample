@@ -12,7 +12,8 @@ namespace PayCore.ProductCatalog.Application.Dto_Validator.Product.Dto
         public double Price { get; set; }
         public bool IsSold { get; set; }
         public bool IsOfferable { get; set; }
-        public int AccountId { get; set; }
-        public string AccountName { get; set; }
+        public bool Status { get; set; }
+        public int OwnerId { get; set; }
+        public string OwnerName { get; set; }
     }
 }

@@ -5,6 +5,7 @@ using PayCore.ProductCatalog.Application.Interfaces.UnitOfWork;
 using PayCore.ProductCatalog.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PayCore.ProductCatalog.Application.Services
@@ -47,6 +48,11 @@ namespace PayCore.ProductCatalog.Application.Services
         //Insert
         public async Task Insert(AccountUpsertDto dto)
         {
+            var accounts = await unitOfWork.Account.GetAll(x => x.UserName == dto.UserName);
+            if(accounts.Count() != 0)
+            {
+                throw new BadRequestException("This username is used by another user");
+            }
             var tempEntity = mapper.Map<AccountUpsertDto, Account>(dto);
             tempEntity.Password = tempEntity.Password.GetMd5Hash();
             await unitOfWork.Account.Create(tempEntity);

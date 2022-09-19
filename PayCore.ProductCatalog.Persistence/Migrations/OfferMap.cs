@@ -32,7 +32,14 @@ namespace PayCore.ProductCatalog.Persistence.Migrations
                 x.NotNullable(true);
             });
 
-            ManyToOne(product => product.Account, map => map.Column("AccountId"));
+            Property(x => x.Status, x =>
+            {
+                x.Type(NHibernateUtil.Boolean);
+                x.NotNullable(true);
+
+            });
+
+            ManyToOne(product => product.Customer, map => map.Column("AccountId"));
             ManyToOne(offer => offer.Product, map => map.Column("ProductId"));
             Table("offer");
         }

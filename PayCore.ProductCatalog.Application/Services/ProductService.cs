@@ -48,8 +48,9 @@ namespace PayCore.ProductCatalog.Application.Services
                         Price = sequenceEnum.Current.Price,
                         IsSold = sequenceEnum.Current.IsSold,
                         IsOfferable = sequenceEnum.Current.IsOfferable,
-                        AccountId = sequenceEnum.Current.Account.Id,
-                        AccountName = sequenceEnum.Current.Account.Name,
+                        Status = sequenceEnum.Current.Status,
+                        OwnerId = sequenceEnum.Current.Owner.Id,
+                        OwnerName = sequenceEnum.Current.Owner.Name,
                        
                     };
                     result.Add(productView);
@@ -79,8 +80,9 @@ namespace PayCore.ProductCatalog.Application.Services
                 Price = entity.Price,
                 IsSold = entity.IsSold,
                 IsOfferable = entity.IsOfferable,
-                AccountId = entity.Account.Id,
-                AccountName = entity.Account.Name,
+                Status = entity.Status,
+                OwnerId = entity.Owner.Id,
+                OwnerName = entity.Owner.Name,
             };
             return result;
         }
@@ -112,7 +114,7 @@ namespace PayCore.ProductCatalog.Application.Services
             }
 
             //Account id taken from jwt token is used to assignt the product to account
-            tempEntity.Account = await _unitOfWork.Account.GetById(UserId);
+            tempEntity.Owner = await _unitOfWork.Account.GetById(UserId);
             await _unitOfWork.Product.Create(tempEntity);
         }
 
@@ -126,7 +128,7 @@ namespace PayCore.ProductCatalog.Application.Services
                 throw new NotFoundException(nameof(Product), productId);
             }
 
-            if(userId != entity.Account.Id)
+            if(userId != entity.Owner.Id)
             {
                 throw new BadRequestException("Not allowed");
             }
@@ -167,7 +169,7 @@ namespace PayCore.ProductCatalog.Application.Services
             }
 
             //Account id taken from jwt token is used to assignt the product to account
-            tempEntity.Account = await _unitOfWork.Account.GetById(userId);
+            tempEntity.Owner = await _unitOfWork.Account.GetById(userId);
             await _unitOfWork.Offer.Update(tempentity);
         }
 
@@ -176,17 +178,24 @@ namespace PayCore.ProductCatalog.Application.Services
         {
             var entity = await _unitOfWork.Product.GetById(productId);
 
-            if (entity.Account.Id == userId)
-            {
-                throw new BadRequestException("Product belongs to user");
-            }
-
-            if (entity is null)
+            if(entity is null)
             {
                 throw new NotFoundException(nameof(Product), productId);
             }
 
+            if (entity.Owner.Id == userId)
+            {
+                throw new BadRequestException("Product belongs to user");
+            }
+
+            if(entity.IsSold == true)
+            {
+                throw new BadRequestException("Product is sold");
+            }
+
             entity.IsSold = true;
+            entity.Status = false;
+            entity.IsOfferable = false,
             await _unitOfWork.Product.Update(entity);
         }
     }

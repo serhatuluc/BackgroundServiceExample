@@ -41,7 +41,7 @@ namespace PayCore.ProductCatalog.WebAPI.Controllers
         {
             var accountId = int.Parse((User.Identity as ClaimsIdentity).FindFirst("AccountId").Value);
             //Fetching objects using service
-            var result = await productService.GetAll(x=>x.Account.Id ==accountId);
+            var result = await productService.GetAll(x=>x.Owner.Id ==accountId);
             return Ok(result);
         }
 

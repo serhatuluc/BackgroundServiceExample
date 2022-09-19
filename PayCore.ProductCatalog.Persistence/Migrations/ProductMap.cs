@@ -45,6 +45,13 @@ namespace PayCore.ProductCatalog.Persistence.Migrations
 
             });
 
+            Property(x => x.Status, x =>
+            {
+                x.Type(NHibernateUtil.Boolean);
+                x.NotNullable(true);
+
+            });
+
             Property(b => b.Price, x =>
             {
                 x.Type(NHibernateUtil.Int32);
@@ -58,7 +65,7 @@ namespace PayCore.ProductCatalog.Persistence.Migrations
 
             ManyToOne(product => product.Brand, map => map.Column("BrandId"));
 
-            ManyToOne(product => product.Account, map => map.Column("AccountId"));
+            ManyToOne(product => product.Owner, map => map.Column("AccountId"));
 
             Bag(product => product.Offers, map => map.Key(k => k.Column("ProductId")), rel => rel.OneToMany());
 
