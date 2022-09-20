@@ -13,13 +13,13 @@ using System.Threading.Tasks;
 
 namespace PayCore.ProductCatalog.UnitTest
 {
-    public class Tests
+    public class CategoryServiceTests
     {
         private readonly Mock<ICategoryRepository> _categoryRepository;
         private readonly Mock<IUnitOfWork> _unitOfWork;
         private readonly IMapper _mapper;
 
-        public Tests()
+        public CategoryServiceTests()
         {
             var categoryRepositoryMock = new Mock<ICategoryRepository>();
             _unitOfWork = new Mock<IUnitOfWork>();
@@ -67,6 +67,7 @@ namespace PayCore.ProductCatalog.UnitTest
             Assert.Throws<NotFoundException>(()=>categoryService.Remove(It.IsAny<int>()).GetAwaiter().GetResult());
         }
 
+       
         [Test]
         public void Update_NonExistingItem_ReturnNotFound()
         {
@@ -79,5 +80,6 @@ namespace PayCore.ProductCatalog.UnitTest
             Assert.Throws<NotFoundException>(() => categoryService.Update(It.IsAny<int>(),dto).GetAwaiter().GetResult());
         }
 
+       
     }
 }
