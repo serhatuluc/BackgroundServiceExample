@@ -1,11 +1,15 @@
 using AutoMapper;
 using Moq;
 using NUnit.Framework;
+using PayCore.ProductCatalog.Application;
+using PayCore.ProductCatalog.Application.Dto_Validator;
 using PayCore.ProductCatalog.Application.Interfaces.Repositories;
 using PayCore.ProductCatalog.Application.Interfaces.UnitOfWork;
 using PayCore.ProductCatalog.Application.Mapping;
 using PayCore.ProductCatalog.Application.Services;
 using PayCore.ProductCatalog.Domain.Entities;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace PayCore.ProductCatalog.UnitTest
@@ -37,5 +41,32 @@ namespace PayCore.ProductCatalog.UnitTest
 
             Assert.NotNull(category);
         }
+
+        [Test]
+        public async Task GetAllCategoryTest()
+        {
+            _unitOfWork.Setup(u => u.Category).Returns(_categoryRepository.Object);
+            _unitOfWork.Setup(repo => repo.Category.GetAll()).ReturnsAsync(new List<Category>() { new Category { Id = 1, CategoryName = "car" }, new Category { Id = 2, CategoryName = "Book" } });
+            var categoryService = new CategoryService(_mapper, _unitOfWork.Object);
+
+
+            var category = await categoryService.GetAll();
+
+            Assert.NotNull(category);
+        }
+        [Test]
+        public void DeleteCategoryTest()
+        {
+            //Arrange
+            _unitOfWork.Setup(u => u.Category).Returns(_categoryRepository.Object);
+            _unitOfWork.Setup(repo => repo.Category.GetById(It.IsAny<int>())).ReturnsAsync((Category)null);
+            var categoryService = new CategoryService(_mapper, _unitOfWork.Object);
+
+            //Act //Assert
+            Assert.Throws<NotFoundException>(()=>categoryService.Remove(It.IsAny<int>()).GetAwaiter().GetResult());
+        }
+
+
+
     }
 }

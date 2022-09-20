@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using PayCore.ProductCatalog.Application.Interfaces;
-using PayCore.ProductCatalog.Application.Interfaces.Log;
 using PayCore.ProductCatalog.Application.Interfaces.UnitOfWork;
 using PayCore.ProductCatalog.Domain.Entities;
 using PayCore.ProductCatalog.Domain.Jwt;

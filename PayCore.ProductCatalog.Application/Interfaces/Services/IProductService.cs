@@ -10,6 +10,7 @@ namespace PayCore.ProductCatalog.Application.Interfaces.Services
     public interface IProductService
     {
         //Fetches all products
+        #nullable enable
         Task<IEnumerable<ProductViewDto>> GetAll(Expression<Func<Product, bool>>? expression = null);
 
         //Get product with id

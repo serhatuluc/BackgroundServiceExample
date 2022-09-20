@@ -62,15 +62,18 @@ namespace PayCore.ProductCatalog.Persistence.Repositories
             };
         }
         #nullable enable
-        public async Task<IEnumerable<Entity>> GetAll(Expression<Func<Entity, bool>>? expression = null)
+        public async Task<IEnumerable<Entity>> GetAll(Expression<Func<Entity, bool>> expression)
         {
             if(expression is null)
             {
                 return await session.Query<Entity>().ToListAsync();
             }
-
             return await session.Query<Entity>().Where(expression).ToListAsync();
 
+        }
+        public async Task<IEnumerable<Entity>> GetAll()
+        {
+            return await session.Query<Entity>().ToListAsync();
         }
 
         public async Task<Entity> GetById(int id)

@@ -12,7 +12,8 @@ namespace PayCore.ProductCatalog.Application.Interfaces.Repositories
         Task Update(Entity entity);
         Task Delete(Entity entity);
         #nullable enable
-        Task<IEnumerable<Entity>> GetAll(Expression<Func<Entity, bool>>? expression = null);
+        Task<IEnumerable<Entity>> GetAll(Expression<Func<Entity, bool>> expression);
+        Task<IEnumerable<Entity>> GetAll();
         Task<Entity> GetById(int id);
 
     }

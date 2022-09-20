@@ -24,8 +24,9 @@ namespace PayCore.ProductCatalog.Application.Services
         }
 
         //GetAll
-        public async Task<IEnumerable<ProductViewDto>> GetAll(Expression<Func<Product, bool>>? expression = null)
+        public async Task<IEnumerable<ProductViewDto>> GetAll(Expression<Func<Product, bool>> expression = null)
         {
+            #nullable enable
             var listProduct = await _unitOfWork.Product.GetAll(expression);
 
             var result = new List<ProductViewDto>();
