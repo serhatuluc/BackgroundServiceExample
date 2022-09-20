@@ -32,7 +32,7 @@ namespace PayCore.ProductCatalog.UnitTest
         public async Task GetCategory_WithExistingItem_ReturnsExpectedItem()
         {
             _unitOfWork.Setup(u => u.Category).Returns(_categoryRepository.Object);
-            _unitOfWork.Setup(repo => repo.Category.GetById(1)).ReturnsAsync(new Category { Id = 1, CategoryName = "car"});
+            _unitOfWork.Setup(repo => repo.Category.GetById(1)).ReturnsAsync(new Category { Id = 1, CategoryName = "Test"});
             var categoryService = new CategoryService(_mapper,_unitOfWork.Object);
 
 

@@ -32,13 +32,13 @@ namespace PayCore.ProductCatalog.UnitTest.ServiceTests
         public async Task GetColor_WithExistingItem_ReturnsExpectedItem()
         {
             _unitOfWork.Setup(u => u.Color).Returns(_colorRepository.Object);
-            _unitOfWork.Setup(repo => repo.Color.GetById(1)).ReturnsAsync(new Color{ Id = 1, ColorName = "car" });
+            _unitOfWork.Setup(repo => repo.Color.GetById(1)).ReturnsAsync(new Color{ Id = 1, ColorName = "Test" });
             var colorService = new ColorService(_mapper, _unitOfWork.Object);
 
 
-            var category = await colorService.GetById(1);
+            var color = await colorService.GetById(1);
 
-            Assert.NotNull(category);
+            Assert.NotNull(color);
         }
 
         [Test]
@@ -79,7 +79,5 @@ namespace PayCore.ProductCatalog.UnitTest.ServiceTests
 
             Assert.Throws<NotFoundException>(() => colorService.Update(It.IsAny<int>(), dto).GetAwaiter().GetResult());
         }
-
-
     }
 }
