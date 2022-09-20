@@ -8,7 +8,6 @@ using PayCore.ProductCatalog.Application.Interfaces.UnitOfWork;
 using PayCore.ProductCatalog.Application.Mapping;
 using PayCore.ProductCatalog.Application.Services;
 using PayCore.ProductCatalog.Domain.Entities;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -30,7 +29,7 @@ namespace PayCore.ProductCatalog.UnitTest
         }
 
         [Test]
-        public async Task GetCategoryByIdTest()
+        public async Task GetCategory_WithExistingItem_ReturnsExpectedItem()
         {
             _unitOfWork.Setup(u => u.Category).Returns(_categoryRepository.Object);
             _unitOfWork.Setup(repo => repo.Category.GetById(1)).ReturnsAsync(new Category { Id = 1, CategoryName = "car"});
@@ -43,7 +42,7 @@ namespace PayCore.ProductCatalog.UnitTest
         }
 
         [Test]
-        public async Task GetAllCategoryTest()
+        public async Task GetAllCategory_ReturnsListOfCategory()
         {
             _unitOfWork.Setup(u => u.Category).Returns(_categoryRepository.Object);
             _unitOfWork.Setup(repo => repo.Category.GetAll()).ReturnsAsync(new List<Category>() { new Category { Id = 1, CategoryName = "car" }, new Category { Id = 2, CategoryName = "Book" } });
@@ -53,9 +52,11 @@ namespace PayCore.ProductCatalog.UnitTest
             var category = await categoryService.GetAll();
 
             Assert.NotNull(category);
+
         }
+
         [Test]
-        public void DeleteCategoryTest()
+        public void Delete_WithNonExistingItem_ReturnNotFoundException()
         {
             //Arrange
             _unitOfWork.Setup(u => u.Category).Returns(_categoryRepository.Object);
@@ -66,7 +67,17 @@ namespace PayCore.ProductCatalog.UnitTest
             Assert.Throws<NotFoundException>(()=>categoryService.Remove(It.IsAny<int>()).GetAwaiter().GetResult());
         }
 
+        [Test]
+        public void Update_NonExistingItem_ReturnNotFound()
+        {
+            //Arrange
+            _unitOfWork.Setup(u => u.Category).Returns(_categoryRepository.Object);
+            var dto = new CategoryUpsertDto();
+            _unitOfWork.Setup(repo => repo.Category.GetById(It.IsAny<int>())).ReturnsAsync((Category)null);
+            var categoryService = new CategoryService(_mapper, _unitOfWork.Object);
 
+            Assert.Throws<NotFoundException>(() => categoryService.Update(It.IsAny<int>(),dto).GetAwaiter().GetResult());
+        }
 
     }
 }

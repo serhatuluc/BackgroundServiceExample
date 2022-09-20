@@ -35,7 +35,7 @@ namespace PayCore.ProductCatalog.UnitTest
             var _tokenRequest = new TokenRequest { UserName = "Admin", Password = "Admin123" };
          
 
-            //Md5 hash of Admin generated using online resources then it will be tested if my method generates same hash
+            //Md5 hash of Admin123 generated using online resources then it will be tested if my method generates same hash
             IEnumerable<Account> accounts = new List<Account>(){ new Account {Id = 1, 
                                                                               UserName = "Admin",
                                                                               Password = "e64b78fc3bc91bcbc7dc232ba8ec59e0" , 
