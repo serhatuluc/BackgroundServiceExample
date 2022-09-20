@@ -18,15 +18,14 @@ namespace PayCore.ProductCatalog.Application
 
     public class TokenService : ITokenService
     {
-        private readonly ILoggerManager Log;
         protected readonly IUnitOfWork unitOfWork;
         private readonly JwtConfig jwtConfig;
 
-        public TokenService(IOptionsMonitor<JwtConfig> jwtConfig, IUnitOfWork unitOfWork, ILoggerManager Log)
+        public TokenService(IOptionsMonitor<JwtConfig> jwtConfig, IUnitOfWork unitOfWork)
         {
             this.jwtConfig = jwtConfig.CurrentValue;
             this.unitOfWork = unitOfWork;
-            this.Log = Log;
+ 
            
         }
 
