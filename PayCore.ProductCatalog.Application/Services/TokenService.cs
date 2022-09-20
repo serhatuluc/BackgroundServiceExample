@@ -28,6 +28,13 @@ namespace PayCore.ProductCatalog.Application
  
            
         }
+        public TokenService(IOptionsMonitor<JwtConfig> jwtConfig, IUnitOfWork unitOfWork, Claim claims)
+        {
+            this.jwtConfig = jwtConfig.CurrentValue;
+            this.unitOfWork = unitOfWork;
+
+
+        }
 
         public async Task<TokenResponse> GenerateToken(TokenRequest tokenRequest)
         {
@@ -85,7 +92,7 @@ namespace PayCore.ProductCatalog.Application
             return accessToken;
         }
 
-        private Claim[] GetClaims(Account account)
+        public Claim[] GetClaims(Account account)
         {
             var claims = new[]
          {

@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PayCore.ProductCatalog.Pers
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PayCore.ProductCatalog.Infrastructure", "PayCore.ProductCatalog.Infrastructure\PayCore.ProductCatalog.Infrastructure.csproj", "{0789BC92-C0F9-4996-91F5-CC5ECBC75E96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayCore.ProductCatalog.UnitTest", "PayCore.ProductCatalog.UnitTest\PayCore.ProductCatalog.UnitTest.csproj", "{2D8F4DFD-DE63-4B63-831C-6C687BB2B3E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PayCore.ProductCatalog.UnitTest", "PayCore.ProductCatalog.UnitTest\PayCore.ProductCatalog.UnitTest.csproj", "{2D8F4DFD-DE63-4B63-831C-6C687BB2B3E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

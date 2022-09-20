@@ -61,8 +61,8 @@ namespace PayCore.ProductCatalog.Persistence.Repositories
                 session.Dispose();
             };
         }
-
-        public async Task<IEnumerable<Entity>> GetAll(Expression<Func<Entity, bool>> expression = null)
+        #nullable enable
+        public async Task<IEnumerable<Entity>> GetAll(Expression<Func<Entity, bool>>? expression = null)
         {
             if(expression is null)
             {
