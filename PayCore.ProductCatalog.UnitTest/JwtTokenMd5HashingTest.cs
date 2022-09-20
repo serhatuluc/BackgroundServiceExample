@@ -26,21 +26,16 @@ namespace PayCore.ProductCatalog.UnitTest
         [Test]
         public void JwtTokenMd5Test()
         {
-            //Both token generation and md5H hashing is implemented in same class which is Token service
-            //Thats why token generation and Md5 hashing is tested here
-          
+            
             //Firstly JWTConfig is faked
             JwtConfig jwtConfig = new() { AccessTokenExpiration = 10 ,Secret = "2A49DF37289D10E73",Issuer = "Pyc",Audience = "Pyc" };
-            //Then it is mocked
             var monitor = Mock.Of<IOptionsMonitor<JwtConfig>>(_ => _.CurrentValue == jwtConfig);
 
             //Token request is faked
             var _tokenRequest = new TokenRequest { UserName = "Admin", Password = "Admin123" };
          
-          
 
             //Md5 hash of Admin generated using online resources then it will be tested if my method generates same hash
-            //Admin123 is hashed using online resource
             IEnumerable<Account> accounts = new List<Account>(){ new Account {Id = 1, 
                                                                               UserName = "Admin",
                                                                               Password = "e64b78fc3bc91bcbc7dc232ba8ec59e0" , 
