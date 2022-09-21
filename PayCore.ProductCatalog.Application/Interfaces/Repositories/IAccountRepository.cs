@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace PayCore.ProductCatalog.Application.Interfaces.Repositories
 {
-    public interface IAccountRepository
+    public interface IAccountRepository:IGenericRepository<Account>
     {
-        Task Create(Account entity);
-        Task Update(Account entity);
-        Task Delete(Account entity);
-        #nullable enable
-        Task<IEnumerable<Account>> GetAll(Expression<Func<Account, bool>>? expression = null);
-        Task<Account> GetById(int id);
+        
     }
 }
