@@ -80,7 +80,5 @@ namespace PayCore.ProductCatalog.UnitTest.ServiceTests
 
             Assert.Throws<NotFoundException>(() => brandService.Update(It.IsAny<int>(), dto).GetAwaiter().GetResult());
         }
-
-
     }
 }

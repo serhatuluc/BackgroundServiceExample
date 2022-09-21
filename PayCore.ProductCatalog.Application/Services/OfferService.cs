@@ -29,19 +29,24 @@ namespace PayCore.ProductCatalog.Application.Services
             //It fetches offers to user
             var offers = await _unitOfWork.Offer.GetOfferstoUser(userID);
 
+            if (offers is null)
+            {
+                throw new NotFoundException(nameof(Offer), id);
+            }
+
             //It selects the offer to be approved
             var offer = offers.Where(x=>x.Id == id).FirstOrDefault();
 
-            if (offer is null)
+           if(offer is null)
             {
                 throw new NotFoundException(nameof(Offer), id);
+
             }
 
             //offer is approved
             offer.IsApproved = true;
             var product = await _unitOfWork.Product.GetById(offer.Product.Id);
             await _unitOfWork.Offer.Update(offer);
-
         }
 
        
@@ -50,6 +55,11 @@ namespace PayCore.ProductCatalog.Application.Services
         {
             //It fetches offers to user
             var offers = await _unitOfWork.Offer.GetOfferstoUser(userId);
+
+            if (offers is null)
+            {
+                throw new NotFoundException(nameof(Offer), id);
+            }
 
             //It selects the offer to be approved
             var offer = offers.Where(x => x.Id == id).FirstOrDefault();

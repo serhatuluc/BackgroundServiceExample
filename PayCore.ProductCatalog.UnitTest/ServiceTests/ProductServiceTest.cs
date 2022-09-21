@@ -149,14 +149,11 @@ namespace PayCore.ProductCatalog.UnitTest
                 Status = true,
                 Owner = new Account { Id = 1, Name = "Test" }
             });
+
             var productService = new ProductService(_mapper, _unitOfWork.Object);
 
             //Act //Assert
             Assert.Throws<BadRequestException>(() => productService.BuyProductWithoutOffer(It.IsAny<int>(), It.IsAny<int>()).GetAwaiter().GetResult());
         }
-
-
-
-
     }
 }
