@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PayCore.ProductCatalog.Application\PayCore.ProductCatalog.Application.csproj" />
+    <ProjectReference Include="..\PayCore.ProductCatalog.Application\PayCore.ProductCatalog.Service.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,8 +1,8 @@
-﻿using PayCore.ProductCatalog.Domain.Entities;
+﻿using PayCore.ProductCatalog.Data.Entities;
 using System.ComponentModel;
 
 
-namespace PayCore.ProductCatalog.Application.Enums
+namespace PayCore.ProductCatalog.Service.Enums
 {
     public enum RoleEnum
     {

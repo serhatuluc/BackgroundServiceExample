@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using PayCore.ProductCatalog.Application.IOC;
+using PayCore.ProductCatalog.Service.IOC;
 using System;
 using System.Text;
 
-namespace PayCore.ProductCatalog.Application.Extension
+namespace PayCore.ProductCatalog.Service.Extension
 {
     public static class ExtensionCustomizeAuthentication
     {

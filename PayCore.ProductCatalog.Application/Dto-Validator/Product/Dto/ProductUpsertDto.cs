@@ -1,6 +1,6 @@
 ﻿
 
-namespace PayCore.ProductCatalog.Application.Dto_Validator.Product.Dto
+namespace PayCore.ProductCatalog.Service.Dto_Validator.Product.Dto
 {
     public class ProductUpsertDto
     {

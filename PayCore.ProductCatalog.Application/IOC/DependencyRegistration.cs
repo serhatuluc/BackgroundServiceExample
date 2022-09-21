@@ -3,15 +3,15 @@ using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PayCore.ProductCatalog.Application.Extension;
-using PayCore.ProductCatalog.Application.Interfaces;
-using PayCore.ProductCatalog.Application.Interfaces.Services;
-using PayCore.ProductCatalog.Application.Mapping;
-using PayCore.ProductCatalog.Application.Services;
-using PayCore.ProductCatalog.Domain.Jwt;
+using PayCore.ProductCatalog.Service.Extension;
+using PayCore.ProductCatalog.Service.Interfaces;
+using PayCore.ProductCatalog.Service.Interfaces.Services;
+using PayCore.ProductCatalog.Service.Mapping;
+using PayCore.ProductCatalog.Service.Services;
+using PayCore.ProductCatalog.Data.Jwt;
 using System.Reflection;
 
-namespace PayCore.ProductCatalog.Application.IOC
+namespace PayCore.ProductCatalog.Service.IOC
 {
     public static class DependencyRegistration
     {

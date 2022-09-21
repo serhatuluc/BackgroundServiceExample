@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PayCore.ProductCatalog.Application.Interfaces.Repositories;
-using PayCore.ProductCatalog.Application.Interfaces.UnitOfWork;
-using PayCore.ProductCatalog.Persistence.Extension;
-using PayCore.ProductCatalog.Persistence.Repositories;
+using PayCore.ProductCatalog.Service.Interfaces.Repositories;
+using PayCore.ProductCatalog.Service.Interfaces.UnitOfWork;
+using PayCore.ProductCatalog.Repository.Extension;
+using PayCore.ProductCatalog.Repository.Repositories;
 
-namespace PayCore.ProductCatalog.Persistence.DependencyContainers
+namespace PayCore.ProductCatalog.Repository.DependencyContainers
 {
     public static class DependencyRegistration
     {

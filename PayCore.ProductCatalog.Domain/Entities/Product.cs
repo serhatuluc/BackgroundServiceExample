@@ -2,7 +2,7 @@
 
 using System.Collections.Generic;
 
-namespace PayCore.ProductCatalog.Domain.Entities
+namespace PayCore.ProductCatalog.Data.Entities
 {
     public class Product:BaseEntity
     {

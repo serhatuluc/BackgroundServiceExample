@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.Options;
 using Moq;
 using NUnit.Framework;
-using PayCore.ProductCatalog.Application;
-using PayCore.ProductCatalog.Application.Interfaces.Repositories;
-using PayCore.ProductCatalog.Application.Interfaces.UnitOfWork;
-using PayCore.ProductCatalog.Domain.Entities;
-using PayCore.ProductCatalog.Domain.Jwt;
-using PayCore.ProductCatalog.Domain.Token;
+using PayCore.ProductCatalog.Service;
+using PayCore.ProductCatalog.Service.Interfaces.Repositories;
+using PayCore.ProductCatalog.Service.Interfaces.UnitOfWork;
+using PayCore.ProductCatalog.Data.Entities;
+using PayCore.ProductCatalog.Data.Jwt;
+using PayCore.ProductCatalog.Data.Token;
 using System.Collections.Generic;
 
 namespace PayCore.ProductCatalog.UnitTest

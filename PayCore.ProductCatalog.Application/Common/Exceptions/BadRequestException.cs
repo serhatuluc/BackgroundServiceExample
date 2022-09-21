@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PayCore.ProductCatalog.Application
+namespace PayCore.ProductCatalog.Service
 {
     public class BadRequestException:ApplicationException
     {

@@ -2,9 +2,9 @@
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using PayCore.ProductCatalog.Application.Dto_Validator.Account.Dto;
-using PayCore.ProductCatalog.Application.Interfaces.Services;
-using PayCore.ProductCatalog.Domain.Entities;
+using PayCore.ProductCatalog.Service.Dto_Validator.Account.Dto;
+using PayCore.ProductCatalog.Service.Interfaces.Services;
+using PayCore.ProductCatalog.Data.Entities;
 using System.Threading.Tasks;
 
 namespace PayCore.ProductCatalog.WebAPI.Controllers

@@ -1,6 +1,6 @@
 ﻿
 
-namespace PayCore.ProductCatalog.Domain.Jwt
+namespace PayCore.ProductCatalog.Data.Jwt
 {
     public class JwtConfig
     {

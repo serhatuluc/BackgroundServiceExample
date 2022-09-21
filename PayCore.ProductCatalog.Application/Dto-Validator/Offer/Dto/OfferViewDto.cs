@@ -1,7 +1,7 @@
-﻿using PayCore.ProductCatalog.Application.Dto_Validator.Product.Dto;
+﻿using PayCore.ProductCatalog.Service.Dto_Validator.Product.Dto;
 
 
-namespace PayCore.ProducCatalog.Application.Dto_Validator
+namespace PayCore.ProductCatalog.Service.Dto_Validator
 {
     public class OfferViewDto
     {

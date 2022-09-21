@@ -1,15 +1,15 @@
 ﻿using NHibernate;
 using NHibernate.Linq;
-using PayCore.ProductCatalog.Application.Interfaces.Log;
-using PayCore.ProductCatalog.Application.Interfaces.Repositories;
-using PayCore.ProductCatalog.Domain.Entities;
+using PayCore.ProductCatalog.Service.Interfaces.Log;
+using PayCore.ProductCatalog.Service.Interfaces.Repositories;
+using PayCore.ProductCatalog.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace PayCore.ProductCatalog.Persistence.Repositories
+namespace PayCore.ProductCatalog.Repository.Repositories
 {
     public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity : BaseEntity
     {

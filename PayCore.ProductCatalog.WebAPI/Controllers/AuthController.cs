@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PayCore.ProductCatalog.Application.Dto_Validator.Account.Dto;
-using PayCore.ProductCatalog.Application.Interfaces;
-using PayCore.ProductCatalog.Application.Interfaces.Services;
-using PayCore.ProductCatalog.Domain.Token;
+using PayCore.ProductCatalog.Service.Dto_Validator.Account.Dto;
+using PayCore.ProductCatalog.Service.Interfaces.Services;
 using System.Threading.Tasks;
+using PayCore.ProductCatalog.Service.Interfaces;
+using PayCore.ProductCatalog.Data.Token;
 
 namespace PayCore.ProductCatalog.WebAPI.Controllers
 {

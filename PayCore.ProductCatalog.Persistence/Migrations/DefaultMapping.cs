@@ -1,4 +1,4 @@
-﻿namespace PayCore.ProductCatalog.Persistence.Migrations
+﻿namespace PayCore.ProductCatalog.Repository.Migrations
 {
     public class DefaultMapping
     {

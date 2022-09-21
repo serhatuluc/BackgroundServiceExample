@@ -4,11 +4,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OnionArcExample.Application;
-using PayCore.ProductCatalog.Application.Interfaces.Log;
-using PayCore.ProductCatalog.Application.IOC;
+using PayCore.ProductCatalog.Service.Interfaces.Log;
+using PayCore.ProductCatalog.Service.IOC;
 using PayCore.ProductCatalog.Infrastructure;
 using PayCore.ProductCatalog.Infrastructure.IOC;
-using PayCore.ProductCatalog.Persistence.DependencyContainers;
+using PayCore.ProductCatalog.Repository.DependencyContainers;
 
 
 namespace PayCore.ProductCatalog.WebAPI

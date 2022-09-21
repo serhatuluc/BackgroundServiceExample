@@ -1,7 +1,7 @@
-﻿using PayCore.ProductCatalog.Domain.Entities;
+﻿using PayCore.ProductCatalog.Data.Entities;
 
 
-namespace PayCore.ProductCatalog.Application.Interfaces.Repositories
+namespace PayCore.ProductCatalog.Service.Interfaces.Repositories
 {
     public interface IProductRepository:IGenericRepository<Product>
     {

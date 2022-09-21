@@ -1,8 +1,8 @@
 ﻿
-using PayCore.ProductCatalog.Domain.Token;
+using PayCore.ProductCatalog.Data.Token;
 using System.Threading.Tasks;
 
-namespace PayCore.ProductCatalog.Application.Interfaces
+namespace PayCore.ProductCatalog.Service.Interfaces
 {
     public interface ITokenService
     {

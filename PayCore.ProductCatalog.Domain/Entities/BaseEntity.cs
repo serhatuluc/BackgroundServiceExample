@@ -1,7 +1,6 @@
-﻿using System;
+﻿
 
-
-namespace PayCore.ProductCatalog.Domain.Entities
+namespace PayCore.ProductCatalog.Data.Entities
 {
     public class BaseEntity
     {

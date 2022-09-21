@@ -1,15 +1,14 @@
 ﻿using AutoMapper;
-using PayCore.ProducCatalog.Application.Dto_Validator;
-using PayCore.ProductCatalog.Application.Dto_Validator;
-using PayCore.ProductCatalog.Application.Dto_Validator.Product.Dto;
-using PayCore.ProductCatalog.Application.Interfaces.Services;
-using PayCore.ProductCatalog.Application.Interfaces.UnitOfWork;
-using PayCore.ProductCatalog.Domain.Entities;
+using PayCore.ProductCatalog.Service.Dto_Validator;
+using PayCore.ProductCatalog.Service.Dto_Validator.Product.Dto;
+using PayCore.ProductCatalog.Service.Interfaces.Services;
+using PayCore.ProductCatalog.Service.Interfaces.UnitOfWork;
+using PayCore.ProductCatalog.Data.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PayCore.ProductCatalog.Application.Services
+namespace PayCore.ProductCatalog.Service.Services
 {
     public class OfferService : IOfferService
     {

@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
-using PayCore.ProducCatalog.Application.Dto_Validator;
-using PayCore.ProductCatalog.Application.Dto_Validator;
-using PayCore.ProductCatalog.Application.Dto_Validator.Account.Dto;
-using PayCore.ProductCatalog.Application.Dto_Validator.Product.Dto;
-using PayCore.ProductCatalog.Domain.Entities;
+using PayCore.ProductCatalog.Service.Dto_Validator;
+using PayCore.ProductCatalog.Service.Dto_Validator.Account.Dto;
+using PayCore.ProductCatalog.Service.Dto_Validator.Product.Dto;
+using PayCore.ProductCatalog.Data.Entities;
 
-namespace PayCore.ProductCatalog.Application.Mapping
+namespace PayCore.ProductCatalog.Service.Mapping
 {
     public class MappingProfile : Profile
     {

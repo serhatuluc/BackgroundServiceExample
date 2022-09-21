@@ -1,11 +1,11 @@
-﻿using PayCore.ProductCatalog.Application.Dto_Validator.Product.Dto;
-using PayCore.ProductCatalog.Domain.Entities;
+﻿using PayCore.ProductCatalog.Service.Dto_Validator.Product.Dto;
+using PayCore.ProductCatalog.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace PayCore.ProductCatalog.Application.Interfaces.Services
+namespace PayCore.ProductCatalog.Service.Interfaces.Services
 {
     public interface IProductService
     {

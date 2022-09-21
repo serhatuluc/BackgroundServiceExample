@@ -1,10 +1,10 @@
 ﻿using NHibernate;
-using PayCore.ProductCatalog.Application.Interfaces.Log;
-using PayCore.ProductCatalog.Application.Interfaces.Repositories;
-using PayCore.ProductCatalog.Application.Interfaces.UnitOfWork;
-using PayCore.ProductCatalog.Persistence.Repositories;
+using PayCore.ProductCatalog.Service.Interfaces.Log;
+using PayCore.ProductCatalog.Service.Interfaces.Repositories;
+using PayCore.ProductCatalog.Service.Interfaces.UnitOfWork;
+using PayCore.ProductCatalog.Repository.Repositories;
 
-namespace PayCore.ProductCatalog.Persistence
+namespace PayCore.ProductCatalog.Repository
 {
     public class UnitOfWork : IUnitOfWork
     {

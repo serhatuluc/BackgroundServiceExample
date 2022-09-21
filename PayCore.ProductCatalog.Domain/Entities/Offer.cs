@@ -1,6 +1,6 @@
 ﻿
 
-namespace PayCore.ProductCatalog.Domain.Entities
+namespace PayCore.ProductCatalog.Data.Entities
 {
     public class Offer:BaseEntity
     {

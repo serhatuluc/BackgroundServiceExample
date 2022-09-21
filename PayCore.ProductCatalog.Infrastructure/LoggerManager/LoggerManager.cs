@@ -1,5 +1,5 @@
 ﻿using Serilog;
-using PayCore.ProductCatalog.Application.Interfaces.Log;
+using PayCore.ProductCatalog.Service.Interfaces.Log;
 using System;
 using Serilog.Events;
 

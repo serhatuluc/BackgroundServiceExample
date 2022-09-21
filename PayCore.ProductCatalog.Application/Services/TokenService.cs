@@ -1,18 +1,19 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using PayCore.ProductCatalog.Application.Interfaces;
-using PayCore.ProductCatalog.Application.Interfaces.UnitOfWork;
-using PayCore.ProductCatalog.Domain.Entities;
-using PayCore.ProductCatalog.Domain.Jwt;
-using PayCore.ProductCatalog.Domain.Token;
+using PayCore.ProductCatalog.Service.Interfaces;
+using PayCore.ProductCatalog.Service.Interfaces.UnitOfWork;
+using PayCore.ProductCatalog.Data.Entities;
+using PayCore.ProductCatalog.Data.Jwt;
+using PayCore.ProductCatalog.Data.Token;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using PayCore.ProductCatalog.Service;
 
-namespace PayCore.ProductCatalog.Application
+namespace PayCore.ProductCatalog.Service
 {
 
     public class TokenService : ITokenService

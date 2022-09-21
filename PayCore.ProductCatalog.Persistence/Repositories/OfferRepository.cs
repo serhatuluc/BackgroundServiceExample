@@ -1,14 +1,13 @@
 ﻿using NHibernate;
 using NHibernate.Linq;
-using PayCore.ProductCatalog.Application.Interfaces.Log;
-using PayCore.ProductCatalog.Application.Interfaces.Repositories;
-using PayCore.ProductCatalog.Domain.Entities;
+using PayCore.ProductCatalog.Service.Interfaces.Log;
+using PayCore.ProductCatalog.Service.Interfaces.Repositories;
+using PayCore.ProductCatalog.Data.Entities;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace PayCore.ProductCatalog.Persistence.Repositories
+namespace PayCore.ProductCatalog.Repository.Repositories
 {
     public class OfferRepository : GenericRepository<Offer>, IOfferRepository
     {

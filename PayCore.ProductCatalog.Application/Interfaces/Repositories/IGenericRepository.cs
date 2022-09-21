@@ -1,10 +1,10 @@
-﻿using PayCore.ProductCatalog.Domain.Entities;
+﻿using PayCore.ProductCatalog.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace PayCore.ProductCatalog.Application.Interfaces.Repositories
+namespace PayCore.ProductCatalog.Service.Interfaces.Repositories
 {
     public interface IGenericRepository<Entity> where Entity : BaseEntity
     {

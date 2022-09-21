@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
-using PayCore.ProductCatalog.Application;
-using PayCore.ProductCatalog.Application.Common.Exceptions;
-using PayCore.ProductCatalog.Application.Interfaces.Log;
+using PayCore.ProductCatalog.Service;
+using PayCore.ProductCatalog.Service.Common.Exceptions;
+using PayCore.ProductCatalog.Service.Interfaces.Log;
 using System;
 using System.Net;
 using System.Threading.Tasks;

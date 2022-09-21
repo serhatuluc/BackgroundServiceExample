@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PayCore.ProductCatalog.Domain\PayCore.ProductCatalog.Domain.csproj" />
+    <ProjectReference Include="..\PayCore.ProductCatalog.Domain\PayCore.ProductCatalog.Data.csproj" />
   </ItemGroup>
 
 </Project>

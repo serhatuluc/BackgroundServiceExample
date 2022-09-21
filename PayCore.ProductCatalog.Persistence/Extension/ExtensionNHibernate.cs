@@ -3,9 +3,9 @@ using NHibernate.Cfg;
 using NHibernate.Cfg.MappingSchema;
 using NHibernate.Dialect;
 using NHibernate.Mapping.ByCode;
-using PayCore.ProductCatalog.Persistence.Migrations;
+using PayCore.ProductCatalog.Repository.Migrations;
 
-namespace PayCore.ProductCatalog.Persistence.Extension
+namespace PayCore.ProductCatalog.Repository.Extension
 {
     public static class ExtensionNHibernate
     {

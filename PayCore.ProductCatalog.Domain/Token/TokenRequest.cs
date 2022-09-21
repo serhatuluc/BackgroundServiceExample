@@ -1,6 +1,6 @@
 ﻿
 
-namespace PayCore.ProductCatalog.Domain.Token
+namespace PayCore.ProductCatalog.Data.Token
 {
     public class TokenRequest
     {

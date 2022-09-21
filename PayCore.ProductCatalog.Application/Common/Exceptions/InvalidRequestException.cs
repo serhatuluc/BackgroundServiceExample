@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace PayCore.ProductCatalog.Application.Common.Exceptions
+namespace PayCore.ProductCatalog.Service.Common.Exceptions
 {
     public class InvalidRequestException : ApplicationException
     {

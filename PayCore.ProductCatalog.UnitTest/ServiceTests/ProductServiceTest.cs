@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
 using Moq;
 using NUnit.Framework;
-using PayCore.ProductCatalog.Application;
-using PayCore.ProductCatalog.Application.Dto_Validator.Product.Dto;
-using PayCore.ProductCatalog.Application.Interfaces.Repositories;
-using PayCore.ProductCatalog.Application.Interfaces.UnitOfWork;
-using PayCore.ProductCatalog.Application.Mapping;
-using PayCore.ProductCatalog.Application.Services;
-using PayCore.ProductCatalog.Domain.Entities;
+using PayCore.ProductCatalog.Service;
+using PayCore.ProductCatalog.Service.Interfaces.Repositories;
+using PayCore.ProductCatalog.Service.Interfaces.UnitOfWork;
+using PayCore.ProductCatalog.Service.Mapping;
+using PayCore.ProductCatalog.Service.Services;
+using PayCore.ProductCatalog.Data.Entities;
 using System.Threading.Tasks;
+using PayCore.ProductCatalog.Service.Dto_Validator.Product.Dto;
 
 namespace PayCore.ProductCatalog.UnitTest
 {

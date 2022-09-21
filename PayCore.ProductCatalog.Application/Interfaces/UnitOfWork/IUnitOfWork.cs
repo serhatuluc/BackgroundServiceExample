@@ -1,7 +1,7 @@
-﻿using PayCore.ProductCatalog.Application.Interfaces.Repositories;
+﻿using PayCore.ProductCatalog.Service.Interfaces.Repositories;
 
 
-namespace PayCore.ProductCatalog.Application.Interfaces.UnitOfWork
+namespace PayCore.ProductCatalog.Service.Interfaces.UnitOfWork
 {
     public interface IUnitOfWork
     {

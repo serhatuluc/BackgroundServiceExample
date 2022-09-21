@@ -1,9 +1,8 @@
-﻿using PayCore.ProductCatalog.Application.Dto_Validator.Account.Dto;
-using System;
+﻿using PayCore.ProductCatalog.Service.Dto_Validator.Account.Dto;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace PayCore.ProductCatalog.Application.Interfaces.Services
+namespace PayCore.ProductCatalog.Service.Interfaces.Services
 {
     public interface IAccountService
     {

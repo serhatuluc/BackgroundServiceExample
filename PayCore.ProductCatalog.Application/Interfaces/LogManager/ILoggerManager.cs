@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PayCore.ProductCatalog.Application.Interfaces.Log
+namespace PayCore.ProductCatalog.Service.Interfaces.Log
 {
     public interface ILoggerManager
     {

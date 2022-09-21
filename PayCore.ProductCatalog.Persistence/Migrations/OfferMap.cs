@@ -1,10 +1,10 @@
 ﻿using NHibernate;
 using NHibernate.Mapping.ByCode;
 using NHibernate.Mapping.ByCode.Conformist;
-using PayCore.ProductCatalog.Domain.Entities;
+using PayCore.ProductCatalog.Data.Entities;
 
 
-namespace PayCore.ProductCatalog.Persistence.Migrations
+namespace PayCore.ProductCatalog.Repository.Migrations
 {
     public class OfferMap:ClassMapping<Offer>
     {

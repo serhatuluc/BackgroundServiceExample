@@ -1,11 +1,8 @@
-﻿using PayCore.ProductCatalog.Domain.Entities;
-using System;
+﻿using PayCore.ProductCatalog.Data.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace PayCore.ProductCatalog.Application.Interfaces.Repositories
+namespace PayCore.ProductCatalog.Service.Interfaces.Repositories
 {
     public interface IOfferRepository:IGenericRepository<Offer>
     {

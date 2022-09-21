@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using PayCore.ProductCatalog.Application.Dto_Validator.Account.Dto;
+using PayCore.ProductCatalog.Service.Dto_Validator.Account.Dto;
 
 
-namespace PayCore.ProductCatalog.Application.Dto_Validator.Account.Validator
+namespace PayCore.ProductCatalog.Service.Dto_Validator.Account.Validator
 {
     public class AccountDtoValidator:AbstractValidator<AccountUpsertDto>
     {

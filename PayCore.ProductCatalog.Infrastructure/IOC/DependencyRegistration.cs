@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PayCore.ProductCatalog.Application.Interfaces.Log;
+using PayCore.ProductCatalog.Service.Interfaces.Log;
 
 
 namespace PayCore.ProductCatalog.Infrastructure.IOC

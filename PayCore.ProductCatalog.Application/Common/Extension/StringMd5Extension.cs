@@ -2,7 +2,7 @@
 using System.Text;
 
 
-namespace PayCore.ProductCatalog.Application
+namespace PayCore.ProductCatalog.Service
 {
     public static class StringMd5Extension
     {
