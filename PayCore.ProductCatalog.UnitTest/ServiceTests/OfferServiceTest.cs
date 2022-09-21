@@ -2,6 +2,7 @@
 using Moq;
 using NUnit.Framework;
 using PayCore.ProductCatalog.Application;
+using PayCore.ProductCatalog.Application.Dto_Validator;
 using PayCore.ProductCatalog.Application.Interfaces.Repositories;
 using PayCore.ProductCatalog.Application.Interfaces.UnitOfWork;
 using PayCore.ProductCatalog.Application.Mapping;
@@ -68,7 +69,7 @@ namespace PayCore.ProductCatalog.UnitTest.ServiceTests
                     ProductName = "Test",
                     Price = 1,
                     Description = "Test",
-                    Category = new Category {Id = 1, CategoryName = "Test" },
+                    Category = new Category { Id = 1, CategoryName = "Test" },
                     Color = new Color { Id = 1, ColorName = "Test" },
                     Brand = new Brand { Id = 1, BrandName = "Test" },
                     IsSold = false,
@@ -125,6 +126,61 @@ namespace PayCore.ProductCatalog.UnitTest.ServiceTests
 
 
 
+
+        [Test]
+        public void OfferOn_NotOfferable_ReturnsBadRequestException()
+        {
+            //Product is not offerable. Then exception will throw
+            //Arrange
+            _unitOfWork.Setup(u => u.Offer).Returns(_offerRepository.Object);
+            _unitOfWork.Setup(u => u.Product.GetById(It.IsAny<int>())).ReturnsAsync(new Product
+            {
+                Id = 1,
+                ProductName = "Test",
+                Price = 1,
+                Description = "Test",
+                Category = new Category { Id = 1, CategoryName = "Test" },
+                Color = new Color { Id = 1, ColorName = "Test" },
+                Brand = new Brand { Id = 1, BrandName = "Test" },
+                IsSold = false,
+                IsOfferable = false, //Not offerable. It will throw exception
+                Status = true,
+                Owner = new Account { Id = 10, Name = "Test" } //Owner id is 10
+            });
+            var offerService = new OfferService(_mapper, _unitOfWork.Object);
+            var dto = new OfferUpsertDto();
+            //Act //Assert                                                       //User id is 10. Exception will throw
+            Assert.Throws<BadRequestException>(() => offerService.OfferOnProduct(10, dto).GetAwaiter().GetResult());
+        }
+
+
+
+        [Test]
+        public void Update_NotExisting_ReturnsNotFoundException()
+        {
+            //Product is not offerable. Then exception will throw
+            //Arrange
+            _unitOfWork.Setup(u => u.Offer).Returns(_offerRepository.Object);
+            _unitOfWork.Setup(u => u.Offer.GetById(It.IsAny<int>())).ReturnsAsync((Offer)null);
+            var offerService = new OfferService(_mapper, _unitOfWork.Object);
+            var dto = new OfferUpsertDto();
+            //Act //Assert                                                       //User id is 10. Exception will throw
+            Assert.Throws<NotFoundException>(() => offerService.UpdateOffer(It.IsAny<int>(), It.IsAny<int>(), dto).GetAwaiter().GetResult());
+        }
+
+
+        [Test]
+        public void WithDrawOffer_OfferDoentBelongtoUser_ReturnsBadRequestException()
+        {
+            //Product is not offerable. Then exception will throw
+            //Arrange
+            _unitOfWork.Setup(u => u.Offer).Returns(_offerRepository.Object);          //Owner of offer has id which is 1. Exception will throw
+            _unitOfWork.Setup(u => u.Offer.GetById(It.IsAny<int>())).ReturnsAsync(new Offer { Id = 1, Customer = new Account { Id = 1 } } );
+            var offerService = new OfferService(_mapper, _unitOfWork.Object);
+  
+            //Act //Assert                                      //User id is 2. Exception will throw
+            Assert.Throws<BadRequestException>(() => offerService.WithDrawOffer(2, It.IsAny<int>()).GetAwaiter().GetResult());
+        }
 
 
 

@@ -216,17 +216,18 @@ namespace PayCore.ProductCatalog.Application.Services
         {
             //Fetch the offer
             var entity = await _unitOfWork.Offer.GetById(offerId);
-
-            //If user tries to use offer doesnt to belong to him/her
-            if(entity.Customer.Id != UserId)
-            {
-                throw new BadRequestException("Offer could not be found");
-            }
             //If it is null throw exception
             if (entity is null)
             {
                 throw new NotFoundException(nameof(Offer), offerId);
             }
+
+            //If user tries to use offer doesnt to belong to him/her
+            if (entity.Customer.Id != UserId)
+            {
+                throw new BadRequestException("Offer could not be found");
+            }
+          
             //Delete it
             await _unitOfWork.Offer.Delete(entity);
         }
